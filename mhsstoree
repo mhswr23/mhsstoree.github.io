@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MHSSTOREE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        utama: '#0F172A',
+                        biruMuda: '#3B82F6',
+                        biruTerang: '#60A5FA',
+                        kaca: 'rgba(255,255,255,0.15)'
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .glass {
+                background: rgba(255, 255, 255, 0.12);
+                backdrop-filter: blur(12px);
+                border: 1px solid rgba(255,255,255,0.2);
+            }
+            .star {
+                position: absolute;
+                width: 2px;
+                height: 2px;
+                background: white;
+                border-radius: 50%;
+                animation: kelap 3s infinite;
+            }
+            @keyframes kelap {
+                0%, 100% { opacity: 0.2; }
+                50% { opacity: 1; }
+            }
+        }
+    </style>
+</head>
+<body class="bg-[#0F172A] min-h-screen font-inter text-white relative overflow-hidden">
+    <!-- Bintang latar -->
+    <div id="bintang" class="absolute inset-0"></div>
+
+    <!-- Konten Utama -->
+    <div class="min-h-screen flex flex-col items-center justify-center px-5 relative z-10">
+        <div class="glass rounded-2xl p-8 w-full max-w-sm shadow-xl">
+            
+            <!-- Logo & Nama Toko -->
+            <div class="flex flex-col items-center mb-6">
+                <div class="w-24 h-24 rounded-full bg-gradient-to-br from-biruMuda to-biruTerang flex items-center justify-center mb-4 shadow-lg shadow-biruMuda/30">
+                    <i class="fa fa-shopping-bag text-4xl"></i>
+                </div>
+                <h1 class="text-3xl font-bold tracking-wider">MHSSTOREE</h1>
+                <p class="text-sm text-gray-200 mt-1">NOMOR SELAIN INI = PALSU ❌</p>
+            </div>
+
+            <!-- Tombol Menu -->
+            <div class="flex flex-col gap-4 mt-6">
+                <a href="https://tiktok.com/@mhsjebeh" target="_blank" class="w-full py-3 bg-gradient-to-r from-biruMuda to-biruTerang rounded-lg text-center font-medium hover:brightness-110 transition-all shadow-md">
+                    <i class="fa fa-tiktok mr-2"></i> TIKTOK RESMI
+                </a>
+
+                <a href="https://wa.me/message/EHAADZIZEG2OL1" target="_blank" class="w-full py-3 bg-kaca rounded-lg text-center font-medium hover:bg-white/20 transition-all">
+                    <i class="fa fa-whatsapp mr-2"></i> WA ADMIN
+                </a>
+
+                <a href="https://chat.whatsapp.com/BBFP8Q9QMS3FCFitKRJnsi?s=cl&p=a&mlu=4" target="_blank" class="w-full py-3 bg-kaca rounded-lg text-center font-medium hover:bg-white/20 transition-all">
+                    <i class="fa fa-users mr-2"></i> JOIN GRUP
+                </a>
+
+                <a href="https://whatsapp.com/channel/0029VbCcQqvDZ4LfbWOHL70M" target="_blank" class="w-full py-3 bg-kaca rounded-lg text-center font-medium hover:bg-white/20 transition-all">
+                    <i class="fa fa-broadcast-tower mr-2"></i> SALURAN WA
+                </a>
+            </div>
+
+            <p class="text-center text-xs text-gray-300 mt-8">© 2026 MHSSTOREE • Semua Hak Dilindungi</p>
+        </div>
+    </div>
+
+    <!-- Script bintang berkedip -->
+    <script>
+        const bintang = document.getElementById('bintang');
+        for (let i = 0; i < 60; i++) {
+            let titik = document.createElement('div');
+            titik.classList.add('star');
+            titik.style.left = `${Math.random() * 100}%`;
+            titik.style.top = `${Math.random() * 100}%`;
+            titik.style.animationDelay = `${Math.random() * 3}s`;
+            bintang.appendChild(titik);
+        }
+    </script>
+</body>
+</html>
